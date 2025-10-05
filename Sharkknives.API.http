@@ -1,0 +1,65 @@
+@SharkKnives.API_HostAddress = https://localhost:7008
+
+### 1. Obter todas as facas
+GET {{SharkKnives.API_HostAddress}}/api/facas
+Accept: application/json
+
+### 2. Obter faca por ID
+GET {{SharkKnives.API_HostAddress}}/api/facas/1
+Accept: application/json
+
+### 3. Login
+POST {{SharkKnives.API_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@sharkknives.com",
+  "password": "admin123"
+}
+
+### 4. Registrar novo usuário
+POST {{SharkKnives.API_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "novo@sharkknives.com",
+  "password": "senha123",
+  "nome": "Novo Usuário"
+}
+
+### 5. Criar nova faca (requer autenticação)
+POST {{SharkKnives.API_HostAddress}}/api/facas
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "modelo": "Nova Faca Teste",
+  "material": "Aço Teste",
+  "camadas": "3 Camadas",
+  "pegada": "Ergonômica",
+  "cabo": "Madeira Teste",
+  "dimensoes": "25cm",
+  "referencia": "TEST-001",
+  "ativo": true
+}
+
+### 6. Atualizar faca (requer autenticação)
+PUT {{SharkKnives.API_HostAddress}}/api/facas/1
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 1,
+  "modelo": "Shark Premium Atualizada",
+  "material": "Aço Inox 440C Premium",
+  "camadas": "3 Camadas",
+  "pegada": "Ergonômica Melhorada",
+  "cabo": "Madeira de Carvalho Premium",
+  "dimensoes": "25cm total",
+  "referencia": "SHK-P001-UPD",
+  "ativo": true
+}
+
+### 7. Deletar faca (requer autenticação)
+DELETE {{SharkKnives.API_HostAddress}}/api/facas/1
+Authorization: Bearer {{auth_token}}

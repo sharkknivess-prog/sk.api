@@ -1,0 +1,10 @@
+﻿name: sharkknives-api
+services:
+- name: web
+  source_dir: /
+  github:
+    repo: sharkknives/sharkknives-api
+    branch: main
+  run_command: dotnet Sharkknives.API.dll
+  build_command: dotnet publish -c Release -o ./publish
+  environment_slug: dotnet-8

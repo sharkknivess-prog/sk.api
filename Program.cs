@@ -8,6 +8,14 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ⬇️⬇️⬇️ ADICIONE ESTAS 3 LINHAS PARA O DEPLOY ⬇️⬇️⬇️
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8080);
+});
+builder.WebHost.UseUrls("http://*:8080");
+// ⬆️⬆️⬆️ FIM DAS LINHAS ADICIONADAS ⬆️⬆️⬆️
+
 // Add services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -91,5 +99,5 @@ catch (Exception ex)
     Console.WriteLine($"? Database error: {ex.Message}");
 }
 
-Console.WriteLine("?? API Running: https://localhost:7208/swagger");
+Console.WriteLine("?? API Running on port 8080");
 app.Run();

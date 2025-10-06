@@ -7,4 +7,4 @@ services:
     branch: main
   run_command: dotnet Sharkknives.API.dll
   build_command: dotnet publish -c Release -o ./publish
-  environment_slug: dotnet-8
+  environment_slug: dotnet-9

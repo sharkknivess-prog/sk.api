@@ -90,9 +90,9 @@ try
     var created = await context.Database.EnsureCreatedAsync();
     Console.WriteLine(created ? "? Database created!" : "? Database already exists");
 
-    Console.WriteLine("?? Seeding data...");
-    DbInitializer.Initialize(context);
-    Console.WriteLine("? Data seeded!");
+    //Console.WriteLine("?? Seeding data...");
+    //DbInitializer.Initialize(context);
+    //Console.WriteLine("? Data seeded!");
 }
 catch (Exception ex)
 {
